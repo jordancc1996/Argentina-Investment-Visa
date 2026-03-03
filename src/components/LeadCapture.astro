@@ -1,0 +1,129 @@
+---
+const formAction = "https://formcarry.com/s/GcoYSniuvie";
+---
+
+<section id="contact" class="relative py-24 md:py-32 overflow-hidden" aria-labelledby="lead-heading">
+  <div class="absolute inset-0">
+    <img
+      src="https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=1920&q=80"
+      alt=""
+      class="w-full h-full object-cover scale-105"
+      width="1920"
+      height="1080"
+      aria-hidden="true"
+    />
+    <div class="absolute inset-0 bg-[#0A0A0A]/90" aria-hidden="true" />
+    <div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-[#C9A84C]/10" aria-hidden="true" />
+  </div>
+
+  <div class="relative z-10 max-w-xl mx-auto px-6">
+    <div id="lead-form-card" class="bg-[#111111]/95 backdrop-blur-sm border border-[rgba(201,168,76,0.25)] shadow-xl shadow-black/30 p-8 md:p-10">
+      <p class="eyebrow text-center mb-4 reveal" data-reveal>Secure Your Position</p>
+      <h2
+        id="lead-heading"
+        class="font-[family-name:var(--font-heading)] text-3xl md:text-4xl text-[#F5EDD6] font-semibold text-center mb-4 reveal"
+        data-reveal
+      >
+        Be First When Argentina Opens Its Doors
+      </h2>
+      <p class="text-[#A89F8C] text-center text-sm md:text-base mb-8 reveal" data-reveal>
+        Investment thresholds are still being defined. Register your interest today and receive exclusive updates, priority access, and expert guidance the moment the program launches.
+      </p>
+
+      <div id="form-wrapper">
+        <form
+          id="lead-form"
+          action={formAction}
+          method="POST"
+          class="space-y-5 reveal"
+          data-reveal
+        >
+          <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" />
+          <div>
+            <label for="name" class="block text-[#A89F8C] text-xs uppercase tracking-widest mb-2">Full Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="w-full bg-[#0A0A0A] border border-[rgba(201,168,76,0.3)] text-[#F5EDD6] px-4 py-3 focus:outline-none focus:border-[#C9A84C] transition-colors"
+              placeholder="Your full name"
+            />
+          </div>
+          <div>
+            <label for="email" class="block text-[#A89F8C] text-xs uppercase tracking-widest mb-2">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="w-full bg-[#0A0A0A] border border-[rgba(201,168,76,0.3)] text-[#F5EDD6] px-4 py-3 focus:outline-none focus:border-[#C9A84C] transition-colors"
+              placeholder="your@email.com"
+            />
+          </div>
+          <div>
+            <label for="country" class="block text-[#A89F8C] text-xs uppercase tracking-widest mb-2">Country of Residence (optional)</label>
+            <input
+              type="text"
+              id="country"
+              name="country"
+              class="w-full bg-[#0A0A0A] border border-[rgba(201,168,76,0.3)] text-[#F5EDD6] px-4 py-3 focus:outline-none focus:border-[#C9A84C] transition-colors"
+              placeholder="e.g. United States"
+            />
+          </div>
+          <button
+            type="submit"
+            id="submit-btn"
+            class="w-full bg-[#C9A84C] text-[#0A0A0A] font-medium py-4 px-6 hover:bg-[#d4b85a] transition-colors disabled:opacity-60"
+          >
+            Request Early Access →
+          </button>
+          <p class="text-[#A89F8C] text-xs text-center">
+            Your information is kept strictly confidential. We do not sell or share your data.
+          </p>
+        </form>
+      </div>
+
+      <div id="success-message" class="hidden text-center py-8">
+        <div class="inline-flex items-center justify-center w-14 h-14 rounded-full border-2 border-[#C9A84C] text-[#C9A84C] mb-4" aria-hidden="true">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <p class="font-[family-name:var(--font-heading)] text-2xl text-[#F5EDD6]">Thank you. We'll be in touch shortly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('lead-form');
+  const formWrapper = document.getElementById('form-wrapper');
+  const successMessage = document.getElementById('success-message');
+  const submitBtn = document.getElementById('submit-btn');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!submitBtn || !formWrapper || !successMessage) return;
+    submitBtn.setAttribute('disabled', '');
+    submitBtn.textContent = 'Sending…';
+    const formData = new FormData(form as HTMLFormElement);
+    try {
+      const res = await fetch((form as HTMLFormElement).action, {
+        method: 'POST',
+        body: formData,
+        headers: { Accept: 'application/json' },
+      });
+      if (res.ok) {
+        formWrapper.classList.add('hidden');
+        successMessage.classList.remove('hidden');
+      } else {
+        submitBtn.removeAttribute('disabled');
+        submitBtn.textContent = 'Request Early Access →';
+      }
+    } catch {
+      submitBtn.removeAttribute('disabled');
+      submitBtn.textContent = 'Request Early Access →';
+    }
+  });
+</script>

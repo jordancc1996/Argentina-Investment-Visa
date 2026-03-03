@@ -1,0 +1,40 @@
+---
+const images = [
+  { src: "https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?w=800&q=80", alt: "Buenos Aires cityscape" },
+  { src: "https://images.unsplash.com/photo-1546074177-ffdda98d214f?w=800&q=80", alt: "Patagonia landscape" },
+  { src: "https://images.unsplash.com/photo-1612294037637-ec328d0e075e?w=800&q=80", alt: "Argentina architecture" },
+  { src: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80", alt: "Luxury lifestyle in Argentina" },
+  { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80", alt: "Elegant interior" },
+];
+---
+
+<section class="py-20 md:py-28 bg-[#111111]" aria-labelledby="gallery-heading">
+  <div class="max-w-7xl mx-auto px-6">
+    <p class="eyebrow text-center mb-4 reveal" data-reveal>Argentina</p>
+    <h2
+      id="gallery-heading"
+      class="font-[family-name:var(--font-heading)] text-4xl md:text-5xl text-[#F5EDD6] font-semibold text-center mb-16 reveal"
+      data-reveal
+    >
+      A Country Worth Calling Home
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {images.map((img, i) => (
+        <div
+          class="reveal overflow-hidden aspect-[4/3] md:aspect-[3/4]"
+          data-reveal
+        >
+          <a href={img.src} class="block h-full w-full group" tabindex="-1">
+            <img
+              src={img.src}
+              alt={img.alt}
+              class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+              width="800"
+              height="600"
+            />
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

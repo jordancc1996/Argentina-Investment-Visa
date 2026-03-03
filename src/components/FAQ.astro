@@ -1,0 +1,85 @@
+---
+const faqs = [
+  {
+    q: "What is the Argentina Citizenship by Investment program?",
+    a: "Argentina's CBI program, established by Presidential Decree 524/2025, allows foreign nationals to obtain Argentine citizenship by making qualifying economic investments. The program is administered by the Agency for Citizenship by Investment Programs under the Ministry of Economy.",
+  },
+  {
+    q: "How much do I need to invest?",
+    a: "Investment thresholds and qualifying sectors have not yet been published. The Ministry of Economy retains authority to define these details in forthcoming regulatory announcements. Register your interest now to receive updates the moment criteria are released.",
+  },
+  {
+    q: "How long does the process take?",
+    a: "Once the program becomes fully operational, the National Directorate of Migration is mandated to issue final decisions within 30 business days of receiving agency recommendations.",
+  },
+  {
+    q: "Is the program accepting applications now?",
+    a: "The program is not yet accepting applications. Remaining requirements include system integrations and final investment criteria. We recommend registering your interest now to be first in line.",
+  },
+  {
+    q: "What are the benefits of Argentine citizenship?",
+    a: "Argentine citizenship offers a powerful passport with access to 170+ countries, a path to US visa-free travel (pending Visa Waiver Program approval), residency rights, and access to one of South America's most sophisticated economies and cultures.",
+  },
+  {
+    q: "Who conducts the security review?",
+    a: "Seven government agencies conduct applicant vetting, including the State Intelligence Secretariat, the Financial Information Unit, and the Ministry of National Security, ensuring full compliance with international security standards.",
+  },
+];
+---
+
+<section id="faq" class="py-20 md:py-28 bg-[#F5EDD6]" aria-labelledby="faq-heading">
+  <div class="max-w-3xl mx-auto px-6">
+    <p class="eyebrow text-center mb-4 reveal" data-reveal style="color: #C9A84C;">
+      Frequently Asked Questions
+    </p>
+    <h2
+      id="faq-heading"
+      class="font-[family-name:var(--font-heading)] text-4xl md:text-5xl text-[#0A0A0A] font-semibold text-center mb-12 reveal"
+      data-reveal
+    >
+      Everything You Need to Know
+    </h2>
+    <div class="space-y-2">
+      {faqs.map((faq, i) => (
+        <div
+          class="reveal border-b border-[rgba(10,10,10,0.15)]"
+          data-reveal
+        >
+          <button
+            type="button"
+            class="faq-trigger w-full flex items-center justify-between gap-4 py-5 text-left text-[#0A0A0A] font-medium hover:text-[#C9A84C] transition-colors"
+            aria-expanded="false"
+            aria-controls={`faq-answer-${i}`}
+            id={`faq-question-${i}`}
+          >
+            <span>{faq.q}</span>
+            <span class="faq-icon text-[#C9A84C] text-xl flex-shrink-0 transition-transform duration-300" aria-hidden="true">+</span>
+          </button>
+          <div
+            id={`faq-answer-${i}`}
+            class="accordion-content"
+            role="region"
+            aria-labelledby={`faq-question-${i}`}
+          >
+            <p class="pb-5 text-[#4a4540] text-sm leading-relaxed">{faq.a}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.faq-trigger').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const content = btn.nextElementSibling;
+      const icon = btn.querySelector('.faq-icon');
+      const isOpen = content?.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(isOpen));
+      if (icon) {
+        icon.textContent = isOpen ? '−' : '+';
+      }
+    });
+  });
+</script>
+

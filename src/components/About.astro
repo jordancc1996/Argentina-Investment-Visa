@@ -1,0 +1,39 @@
+---
+const aboutImage = "https://images.unsplash.com/photo-1567601942262-c4d2f49e07b0?w=900&q=80";
+---
+
+<section id="about" class="py-20 md:py-28 bg-[#0A0A0A]" aria-labelledby="about-heading">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+      <div class="reveal" data-reveal>
+        <p class="eyebrow mb-4">The Opportunity</p>
+        <h2
+          id="about-heading"
+          class="font-[family-name:var(--font-heading)] text-4xl md:text-5xl text-[#F5EDD6] font-semibold mb-6 pb-4 border-b-2 border-[#C9A84C]/40 w-fit"
+        >
+          Argentina Has Opened Its Doors to Global Investors
+        </h2>
+        <div class="text-[#A89F8C] space-y-4 text-base md:text-lg leading-relaxed">
+          <p>
+            Argentina has officially enacted its Citizenship by Investment (CBI) program through Presidential Decree 524/2025 — a landmark moment for global investors seeking a second citizenship in one of South America's most dynamic economies.
+          </p>
+          <p>
+            The decree establishes a comprehensive legal framework enabling foreign nationals to obtain Argentine citizenship through qualifying economic contributions. From initial announcement to formal enactment in under two months, the Milei administration has demonstrated an unmistakable commitment to positioning Argentina as a premier destination for international capital.
+          </p>
+          <p>
+            The newly created Agency for Citizenship by Investment Programs — a decentralized body within the Ministry of Economy — will oversee all applications and coordinate due diligence reviews across seven government institutions, ensuring the program upholds the highest standards of security and integrity.
+          </p>
+        </div>
+      </div>
+      <div class="reveal" data-reveal style="transition-delay: 0.15s">
+        <img
+          src={aboutImage}
+          alt="Argentina architecture and landscape"
+          class="w-full h-[400px] md:h-[500px] object-cover"
+          width="900"
+          height="500"
+        />
+      </div>
+    </div>
+  </div>
+</section>
