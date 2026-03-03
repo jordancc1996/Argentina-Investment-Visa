@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg-primary: #0a0a0a;
-  --color-bg-secondary: #111111;
-  --color-gold: #c9a84c;
-  --color-champagne: #f5edd6;
-  --color-muted: #a89f8c;
-  --color-white: #ffffff;
-  --color-border-gold: rgba(201, 168, 76, 0.2);
+  --color-bg: #fafaf9;
+  --color-bg-alt: #f5f5f4;
+  --color-surface: #ffffff;
+  --color-text: #1a1a1a;
+  --color-text-muted: #525252;
+  --color-accent: #a67c52;
+  --color-accent-dark: #8b6914;
+  --color-border: #e5e5e4;
   --font-heading: "Cormorant Garamond", serif;
-  --font-body: "Inter", sans-serif;
+  --font-body: "Roboto Mono", monospace;
 }
 
 @layer base {
@@ -19,18 +20,19 @@
 
   body {
     font-family: var(--font-body);
-    background-color: var(--color-bg-primary);
-    color: var(--color-champagne);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-size: 1rem;
+    line-height: 1.6;
   }
 }
 
-/* Scroll-triggered fade-in (class applied by JS) */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(16px);
   transition:
-    opacity 0.7s ease-out,
-    transform 0.7s ease-out;
+    opacity 0.5s ease-out,
+    transform 0.5s ease-out;
 }
 
 .reveal.reveal-visible {
@@ -38,30 +40,22 @@
   transform: translateY(0);
 }
 
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-.reveal-delay-4 { transition-delay: 0.4s; }
-.reveal-delay-5 { transition-delay: 0.5s; }
-.reveal-delay-6 { transition-delay: 0.6s; }
-
-/* Eyebrow label */
 .eyebrow {
   font-family: var(--font-body);
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-gold);
+  color: var(--color-text-muted);
+  font-weight: 500;
 }
 
-/* Accordion */
 .accordion-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.35s ease-out;
+  transition: max-height 0.3s ease-out;
 }
 
 .accordion-content.open {
   max-height: 800px;
-  transition: max-height 0.4s ease-in;
+  transition: max-height 0.35s ease-in;
 }

@@ -25,11 +25,32 @@ const { title, description = "Argentina has officially launched its Citizenship 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Roboto+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
+    <div id="scroll-progress" class="fixed top-0 left-0 right-0 z-[100] h-0.5 bg-[#e5e5e4]" aria-hidden="true">
+      <div
+        id="scroll-progress-bar"
+        class="h-full bg-[#1a1a1a] transition-[width] duration-150 ease-out"
+        style="width: 0%"
+      />
+    </div>
     <slot />
   </body>
 </html>
+
+<script>
+  const bar = document.getElementById('scroll-progress-bar');
+  function updateScrollProgress() {
+    if (!bar) return;
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    bar.style.width = `${pct}%`;
+  }
+  window.addEventListener('scroll', updateScrollProgress, { passive: true });
+  window.addEventListener('resize', updateScrollProgress);
+  updateScrollProgress();
+</script>

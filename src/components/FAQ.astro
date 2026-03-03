@@ -27,33 +27,28 @@ const faqs = [
 ];
 ---
 
-<section id="faq" class="py-20 md:py-28 bg-[#F5EDD6]" aria-labelledby="faq-heading">
-  <div class="max-w-3xl mx-auto px-6">
-    <p class="eyebrow text-center mb-4 reveal" data-reveal style="color: #C9A84C;">
-      Frequently Asked Questions
-    </p>
+<section id="faq" class="py-16 md:py-24 bg-white border-t border-[#e5e5e4]" aria-labelledby="faq-heading">
+  <div class="max-w-2xl mx-auto px-6">
+    <p class="eyebrow text-center mb-3 reveal" data-reveal>Frequently asked questions</p>
     <h2
       id="faq-heading"
-      class="font-[family-name:var(--font-heading)] text-4xl md:text-5xl text-[#0A0A0A] font-semibold text-center mb-12 reveal"
+      class="font-[family-name:var(--font-heading)] text-3xl md:text-4xl text-[#1a1a1a] font-semibold text-center mb-10 reveal"
       data-reveal
     >
-      Everything You Need to Know
+      Everything you need to know
     </h2>
-    <div class="space-y-2">
+    <div class="space-y-0 border-t border-[#e5e5e4]">
       {faqs.map((faq, i) => (
-        <div
-          class="reveal border-b border-[rgba(10,10,10,0.15)]"
-          data-reveal
-        >
+        <div class="reveal border-b border-[#e5e5e4]" data-reveal>
           <button
             type="button"
-            class="faq-trigger w-full flex items-center justify-between gap-4 py-5 text-left text-[#0A0A0A] font-medium hover:text-[#C9A84C] transition-colors"
+            class="faq-trigger w-full flex items-center justify-between gap-4 py-5 text-left text-[#1a1a1a] font-medium hover:text-[#525252] transition-colors text-sm md:text-base"
             aria-expanded="false"
             aria-controls={`faq-answer-${i}`}
             id={`faq-question-${i}`}
           >
             <span>{faq.q}</span>
-            <span class="faq-icon text-[#C9A84C] text-xl flex-shrink-0 transition-transform duration-300" aria-hidden="true">+</span>
+            <span class="faq-icon text-[#525252] text-lg flex-shrink-0" aria-hidden="true">+</span>
           </button>
           <div
             id={`faq-answer-${i}`}
@@ -61,7 +56,7 @@ const faqs = [
             role="region"
             aria-labelledby={`faq-question-${i}`}
           >
-            <p class="pb-5 text-[#4a4540] text-sm leading-relaxed">{faq.a}</p>
+            <p class="pb-5 text-[#525252] text-sm leading-relaxed pr-8">{faq.a}</p>
           </div>
         </div>
       ))}
@@ -82,4 +77,3 @@ const faqs = [
     });
   });
 </script>
-

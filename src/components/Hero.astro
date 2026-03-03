@@ -2,74 +2,30 @@
 const heroImage = "https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=1920&q=80";
 ---
 
-<section class="relative min-h-screen flex items-center justify-center overflow-hidden" aria-label="Hero">
-  <div class="absolute inset-0">
-    <img
-      src={heroImage}
-      alt="Buenos Aires skyline at dusk"
-      class="w-full h-full object-cover"
-      width="1920"
-      height="1080"
-      fetchpriority="high"
-    />
-    <div
-      class="absolute inset-0 bg-gradient-to-b from-black/60 to-black/30"
-      aria-hidden="true"
-    />
-  </div>
-
-  <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
-    <p
-      class="eyebrow opacity-0 animate-fade-in mb-4"
-      style="animation-delay: 0.2s; animation-fill-mode: forwards;"
-    >
+<section class="relative pt-24 md:pt-32 pb-16 md:pb-24 bg-[#f5f5f4]" aria-label="Introduction">
+  <div class="max-w-3xl mx-auto px-6 text-center">
+    <p class="eyebrow mb-4 reveal" data-reveal>
       Argentina Citizenship by Investment
     </p>
-    <h1
-      class="font-[family-name:var(--font-heading)] text-5xl md:text-7xl lg:text-[80px] font-semibold text-[#F5EDD6] leading-tight opacity-0 animate-fade-in mb-6"
-      style="animation-delay: 0.4s; animation-fill-mode: forwards;"
-    >
-      Your Path to Argentine Citizenship Starts Here
+    <h1 class="font-[family-name:var(--font-heading)] text-4xl md:text-5xl lg:text-[3.25rem] font-semibold text-[#1a1a1a] leading-tight mb-6 reveal" data-reveal>
+      Your path to Argentine citizenship starts here
     </h1>
-    <p
-      class="text-[#A89F8C] text-base md:text-lg max-w-2xl mx-auto mb-10 opacity-0 animate-fade-in"
-      style="animation-delay: 0.6s; animation-fill-mode: forwards;"
-    >
+    <p class="text-[#525252] text-lg md:text-xl max-w-2xl mx-auto mb-10 reveal" data-reveal>
       Argentina has officially launched its Citizenship by Investment program. Be among the first to secure your position.
     </p>
-    <div
-      class="flex flex-col sm:flex-row gap-4 justify-center items-center opacity-0 animate-fade-in"
-      style="animation-delay: 0.8s; animation-fill-mode: forwards;"
-    >
+    <div class="flex flex-col sm:flex-row gap-4 justify-center reveal" data-reveal>
       <a
         href="#contact"
-        class="w-full sm:w-auto bg-[#C9A84C] text-[#0A0A0A] font-medium px-8 py-4 hover:bg-[#d4b85a] transition-colors"
+        class="inline-flex justify-center bg-[#1a1a1a] text-white font-medium px-8 py-3.5 text-sm hover:bg-[#333] transition-colors"
       >
-        Get Early Access
+        Request Early Access
       </a>
       <a
         href="#about"
-        class="w-full sm:w-auto border border-[#C9A84C]/60 text-[#F5EDD6] px-8 py-4 hover:border-[#C9A84C] hover:bg-[#C9A84C]/10 transition-all inline-flex items-center justify-center gap-1"
+        class="inline-flex justify-center border border-[#1a1a1a] text-[#1a1a1a] px-8 py-3.5 text-sm font-medium hover:bg-[#1a1a1a] hover:text-white transition-colors"
       >
-        Learn More
-        <span class="inline-block">↓</span>
+        Learn more
       </a>
     </div>
   </div>
 </section>
-
-<style>
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-      transform: translateY(16px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  .animate-fade-in {
-    animation: fade-in 0.8s ease-out;
-  }
-</style>
