@@ -1,0 +1,55 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<Layout
+  title="Insights — Argentina Investment Visa"
+  description="Articles and updates on Argentina's Citizenship by Investment program, visa waiver developments, and investment migration."
+>
+  <Navbar />
+  <main class="pt-16 min-h-screen">
+    <section class="py-16 md:py-24 bg-[#fafaf9] border-b border-[#e5e5e4]">
+      <div class="max-w-3xl mx-auto px-6">
+        <p class="eyebrow mb-3 reveal" data-reveal>Insights</p>
+        <h1 class="font-[family-name:var(--font-heading)] text-3xl md:text-4xl text-[#1a1a1a] font-semibold reveal" data-reveal>
+          Articles and updates
+        </h1>
+        <p class="text-[#525252] mt-4 reveal" data-reveal>
+          Analysis and news on Argentina's Citizenship by Investment program and related developments.
+        </p>
+      </div>
+    </section>
+    <section class="py-12 md:py-16">
+      <div class="max-w-3xl mx-auto px-6">
+        <ul class="space-y-8">
+          {posts.map((post) => (
+            <li class="reveal border-b border-[#e5e5e4] pb-8 last:border-0 last:pb-0" data-reveal>
+              <a href={`/insights/${post.id}`} class="group block">
+                <time class="text-[#737373] text-sm" datetime={post.data.pubDate.toISOString()}>
+                  {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                </time>
+                <h2 class="font-[family-name:var(--font-heading)] text-xl md:text-2xl text-[#1a1a1a] font-semibold mt-1 group-hover:underline">
+                  {post.data.title}
+                </h2>
+                <p class="text-[#525252] text-sm mt-2">
+                  {post.data.description}
+                </p>
+                <span class="inline-block mt-2 text-sm font-medium text-[#1a1a1a] group-hover:underline">
+                  Read more →
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+    <Footer />
+  </main>
+</Layout>

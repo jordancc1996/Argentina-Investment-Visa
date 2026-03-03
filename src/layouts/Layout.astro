@@ -53,4 +53,12 @@ const { title, description = "Argentina has officially launched its Citizenship 
   window.addEventListener('scroll', updateScrollProgress, { passive: true });
   window.addEventListener('resize', updateScrollProgress);
   updateScrollProgress();
+
+  const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) entry.target.classList.add('reveal-visible');
+    });
+  }, observerOptions);
+  document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
 </script>
